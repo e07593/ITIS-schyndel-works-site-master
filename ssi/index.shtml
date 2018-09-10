@@ -1,0 +1,157 @@
+<!-- 
+//Name: index.html
+//Task: Home page.
+//Auth: Rohit Lakhanpal
+//LMod: 25/04/2017
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Home Page">
+    <meta name="author" content="Schyndel Works">
+
+    <title>
+        Schyndel Works ™
+    </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="/assets/css/site.css" rel="stylesheet" />
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Site JS -->
+    <script type="text/javascript" src="/assets/js/site.js"></script>
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Schyndel Works ™</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Auth<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/secure-basic">Basic auth</a></li>
+                            <li><a href="/secure-digest">Digest auth</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/deny-gif">Deny .gif</a></li>
+                    <li><a target="_blank" href="/info.php">PHP Info</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SSI <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/ssi">Default document</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/ssi/index.shtml">index.shtml</a></li>
+                            <li><a href="/ssi/index.php">index.php</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Load <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/load/cpu.php">cpu.php</a></li>
+                            <li><a href="/load/io.php">io.php</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>
+                    <!--#echo var="DOCUMENT_URI" -->
+                </h1>
+                <p class="lead">
+                    This page serves as the home page for [/etc/apache2/schyndel/document_root/ssi].
+                </p>
+                <div class="alert alert-info" role="alert">
+                    <strong>Info!</strong> This is the index.html page. This should be served as this folder's default document.
+                </div>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">via SSI display the local date</h4>
+                        <p class="list-group-item-text">
+                            SSI Result is:
+                            <span class="ssi-result">
+                                <!--#echo var="DATE_LOCAL" -->
+                            </span>
+                        </p>
+                        <div class="alert alert-success hide">
+                            <strong>Success!</strong> SSI seems to be working.
+                        </div>
+                        <div class="alert alert-warning hide">
+                            <strong>Warning!</strong> Looks like SSI has not been configured correctly.
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">via SSI display the document uri</h4>
+                        <p class="list-group-item-text">
+                            SSI Result is:
+                            <span class="ssi-result">
+                                <!--#echo var="DOCUMENT_URI" -->
+                            </span>
+                        </p>
+                        <div class="alert alert-success hide">
+                            <strong>Success!</strong> SSI seems to be working.
+                        </div>
+                        <div class="alert alert-warning hide">
+                            <strong>Warning!</strong> Looks like SSI has not been configured correctly.
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">via SSI display the IP address & port number of the remote host</h4>
+                        <p class="list-group-item-text">
+                            SSI Result is:
+                            <span class="ssi-result">
+                                <!--#echo var="REMOTE_ADDR" --> <!--#echo var="REMOTE_PORT" -->                                 
+                            </span>
+                        </p>
+                        <div class="alert alert-success hide">
+                            <strong>Success!</strong> SSI seems to be working.
+                        </div>
+                        <div class="alert alert-warning hide">
+                            <strong>Warning!</strong> Looks like SSI has not been configured correctly.
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+</body>
+
+</html>
